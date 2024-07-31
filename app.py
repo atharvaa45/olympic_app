@@ -13,14 +13,16 @@ region_df = pd.read_csv('noc_regions.csv')
 
 df = preprocessor.preprocess(df, region_df)
 
+st.sidebar.title("Olympics Analysis")
+st.sidebar.image('https://e7.pngegg.com/pngimages/1020/402/png-clipart-2024-summer-olympics-brand-circle-area-olympic-rings-olympics-logo-text-sport.png')
+if user_menu == 'Medal Tally':
+
 user_menu = st.sidebar.radio(
     'Select an Option',
     ('Medal Tally','Overall Analysis','Country-wise Analysis','Athlete wise Analysis')
 )
 
-st.sidebar.title("Olympics Analysis")
-st.sidebar.image('https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fa%2Fa7%2FOlympic_flag.svg%2F255px-Olympic_flag.svg.png&tbnid=B85K-uBfhIYo7M&vet=12ahUKEwipueDJ06uEAxWV2aACHRJTC28QMygAegQIARB0..i&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FOlympic_symbols&docid=QVEM3dbrXvvEnM&w=255&h=170&q=olympics%20logo&ved=2ahUKEwipueDJ06uEAxWV2aACHRJTC28QMygAegQIARB0')
-if user_menu == 'Medal Tally':
+
     st.sidebar.header("Medal Tally")
     years, country = helper.country_year_list(df)
 
